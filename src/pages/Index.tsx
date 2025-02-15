@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ExpenseForm, Expense } from "@/components/ExpenseForm";
 import { IncomeForm } from "@/components/IncomeForm";
@@ -85,9 +84,9 @@ const Index = () => {
   const totalIncome = filteredIncome.reduce((sum, i) => sum + i.amount, 0);
   const totalExpenses = filteredExpenses.reduce((sum, e) => sum + e.amount, 0);
 
-  // 過去12ヶ月分の選択肢を生成
-  const monthOptions = Array.from({ length: 12 }, (_, i) => {
-    const date = addMonths(new Date(), -i);
+  // 過去12ヶ月から未来3ヶ月までの選択肢を生成
+  const monthOptions = Array.from({ length: 16 }, (_, i) => {
+    const date = addMonths(new Date(), -12 + i);
     return {
       value: format(date, "yyyy-MM"),
       label: format(date, "yyyy年M月"),
