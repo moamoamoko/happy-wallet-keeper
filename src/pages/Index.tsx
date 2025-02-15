@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { categories } from "@/lib/constants";
 
 type Transaction = {
   id: string;

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,15 +13,7 @@ import {
 } from "@/components/ui/select";
 import { Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
-const categories = [
-  { id: "transport", name: "交通費" },
-  { id: "food", name: "食費" },
-  { id: "entertainment", name: "交際費" },
-  { id: "utilities", name: "光熱費" },
-  { id: "rent", name: "家賃" },
-  { id: "other", name: "その他" },
-];
+import { categories } from "@/lib/constants";
 
 export type Expense = {
   id: string;
