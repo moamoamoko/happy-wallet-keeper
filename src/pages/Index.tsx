@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ExpenseForm, Expense } from "@/components/ExpenseForm";
 import { IncomeForm } from "@/components/IncomeForm";
@@ -14,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { categories } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 type Transaction = {
   id: string;
@@ -87,9 +89,12 @@ const Index = () => {
   // 過去12ヶ月から未来3ヶ月までの選択肢を生成
   const monthOptions = Array.from({ length: 16 }, (_, i) => {
     const date = addMonths(new Date(), -12 + i);
+    const value = format(date, "yyyy-MM");
+    const currentMonth = format(new Date(), "yyyy-MM");
     return {
-      value: format(date, "yyyy-MM"),
+      value,
       label: format(date, "yyyy年M月"),
+      isCurrent: value === currentMonth
     };
   });
 
@@ -107,8 +112,15 @@ const Index = () => {
             </SelectTrigger>
             <SelectContent>
               {monthOptions.map((month) => (
-                <SelectItem key={month.value} value={month.value}>
+                <SelectItem 
+                  key={month.value} 
+                  value={month.value}
+                  className={cn(
+                    month.isCurrent && "bg-primary/10 font-semibold text-primary"
+                  )}
+                >
                   {month.label}
+                  {month.isCurrent && " (今月)"}
                 </SelectItem>
               ))}
             </SelectContent>
