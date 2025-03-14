@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "./", // Add base path for GitHub Pages
+  base: "/happy-wallet-keeper/", // Update base path to match GitHub repository name
   server: {
     host: "::",
     port: 8080,
