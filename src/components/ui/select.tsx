@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { Check, ChevronDown, ChevronUp } from "lucide-react"
@@ -80,10 +79,6 @@ const SelectContent = React.forwardRef<
         className
       )}
       position={position}
-      style={{
-        backgroundColor: "white", // 白色の背景を追加
-        backdropFilter: "none", // 透明効果を無効化
-      }}
       {...props}
     >
       <SelectScrollUpButton />
